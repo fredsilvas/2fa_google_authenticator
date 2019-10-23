@@ -89,3 +89,9 @@ fi
 
 
 ```
+
+# TODO
+
+
+* Reabilitar o SELinux, colocando apenas as regras para funcionamento do 2FA adequadamente;
+* Incluir "Trap" no script, para detectar se o usuário não cancelou a criação do Token;
