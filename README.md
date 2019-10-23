@@ -1,6 +1,6 @@
 # 2fa_google_authenticator
 
-##Preparação
+## Preparação
 
 Antes da Instalação, prepare o ambiente realizando os seguintes comandos:
 
@@ -12,7 +12,7 @@ Antes da Instalação, prepare o ambiente realizando os seguintes comandos:
   $ yum group install "Development Tools"
 ```
 
-##Instalação Google Authenticator
+## Instalação Google Authenticator
 
 Após a preparação do ambiente, faça o clone do projeto google_authenticator_libpam para sua máquina com o comando:
 git clone https://github.com/google/google-authenticator-libpam.git
