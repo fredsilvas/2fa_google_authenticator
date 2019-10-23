@@ -1,10 +1,10 @@
 # 2fa_google_authenticator
 
-*Preparação*
+**Preparação**
 Antes da Instalação
 
 
-Instalação Google Authenticator
+**Instalação Google Authenticator**
 
 
-Configuração Pós Instalação
+**Configuração Pós Instalação**
