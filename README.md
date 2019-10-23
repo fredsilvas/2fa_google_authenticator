@@ -90,6 +90,24 @@ fi
 
 ```
 
+# Instalação no Celular
+
+Para geração do token, instale no celular (Android), qualquer um dos aplicativos TOTP. Os aplicativos abaixo foram testados e funcionam corretamente.
+
+* Google Authenticator (https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en)
+* TOTP Authenticator - 2FA with Backup & Restore (https://play.google.com/store/apps/details?id=com.authenticator.authservice2&hl=en)
+* FreeOTP Authenticator (https://play.google.com/store/apps/details?id=org.fedorahosted.freeotp&hl=en)
+
+Após instalar o APP, scaneie o QR-Code mostrado ao configurar o Token.
+
+
+# Uso
+
+Ao logar no ssh de uma máquina, informe primeiramente a sua senha de acesso. Caso ainda não tenha configurado o token, o sistema criará o token e mostrará o QR-Code para ser scaneado pelo celular.
+Caso já exista token criado, após informar corretamente a senha, será solicitado o token (gerado pelo APP).
+Informe o token gerado e se correto, será feito o login.
+
+
 # TODO
 
 
