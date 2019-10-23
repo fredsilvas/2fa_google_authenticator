@@ -39,3 +39,53 @@ Após a instalação, edite o arquivo `/etc/pam.d/sshd` inserindo ao final no ar
 
 Em seguida, faça a edição do arquivo `/etc/ssh/sshd_config` e altere a opção ChallengeResponseAuthentication para yes:
 `ChallengeResponseAuthentication yes`
+
+
+É necessário criar um token para cada usuário, e a melhor forma disso acontecer é no momento do login via ssh. Para isso, devemos deixar padronizado o script de geração de token, e que isso esteja automaticamente vinculado ao usuário.
+A melhor forma disso acontecer, é atualizar o arquivo `/etc/skel/.bashrc`, pois ao criar um usuário, este fará uma cópia deste arquivo para a home do usuaário criado.
+Para isso abra o arquivo `/etc/skel/bashrc` e copie ao final do arquivo as seguintes linhas:
+
+```
+#------------------------------------------
+HOME=$HOME
+FILE=/.google_authenticator
+FULLFILE=$HOME$FILE
+
+
+echo $FULLFILE
+if [ ! -f $FULLFILE ]; then
+        google-authenticator -t -d -f -r3 -R30 -W
+#       google-authenticator
+        OUT=$?
+        if [ $OUT -ne 0 ]; then
+                echo ""
+                echo "ERRO. VOCE SERA DESLOGADO"
+                sleep 5
+                PID=`pgrep -U $LOGNAME -f sshd`
+                #echo $PID
+                kill $PID
+
+        else
+                echo ""
+                echo ""
+                echo "Voce criou a key. Faça novo login utilizando 2F"
+                sleep 5
+                PID=`pgrep -U $LOGNAME -f sshd`
+                #echo $PID
+                kill $PID
+
+        fi
+else
+        echo "tá de boa"
+fi
+
+
+#if [ $OUT -ne 0 ]; then
+#        echo "voce sera deslogado"
+#        logout
+#fi
+
+#------------------------------------------
+
+
+```
