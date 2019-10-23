@@ -4,8 +4,11 @@
 
 Antes da Instalação, prepare o ambiente realizando os seguintes comandos:
 
+
 yum install epel-release
+
 yum install qrencode
+
 yum group install "Development Tools"
 
 
